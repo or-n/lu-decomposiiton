@@ -1,0 +1,34 @@
+cabal-version:      3.0
+name:               lu-decomposition
+version:            0.1.0.0
+category:           Math
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall -fno-warn-name-shadowing -O3
+
+library
+    import:           warnings
+    exposed-modules:  Matrix,
+                      Modify,
+                      Generate,
+                      LU,
+                      Multiply,
+                      Solve
+    default-language: Haskell2010
+    default-extensions: RankNTypes
+    hs-source-dirs:   src
+    build-depends:    base ^>=4.17.2.1,
+                      vector
+
+test-suite lu-decomposition-test
+    import:           warnings
+    default-language: Haskell2010
+    default-extensions: RankNTypes
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:    base ^>=4.17.2.1,
+                      vector,
+                      lu-decomposition
